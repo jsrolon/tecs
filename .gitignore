@@ -1,0 +1,6 @@
+/bin
+/builtInChips
+/builtInVMCode
+/OS
+*.bat
+*.sh

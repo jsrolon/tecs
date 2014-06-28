@@ -1,0 +1,13 @@
+CHIP Or {
+	IN a, b;
+	OUT out;
+	PARTS:
+	Nand(a=a,b=b,out=v);
+	Not(a=a,out=x);
+	Not(a=b,out=y);
+	Nand(a=x,b=b,out=z);
+	Nand(a=a,b=y,out=w);
+	And(a=v,b=z,out=m);
+	And(a=m,b=w,out=j);
+	Not(a=j,out=out);
+}

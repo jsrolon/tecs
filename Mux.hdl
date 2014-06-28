@@ -1,0 +1,18 @@
+CHIP Mux {
+	IN a, b, sel;
+	OUT out;
+	PARTS:
+	Not(a=a,out=nota);
+	Not(a=b,out=notb);
+	Not(a=sel, out=notsel);
+	And(a=a,b=notb,out=aandnotb);
+	And(a=aandnotb,b=notsel,out=first);
+	And(a=a,b=b,out=aandb);
+	And(a=aandb,b=notsel,out=second);
+	And(a=nota,b=b,out=notaandb);
+	And(a=notaandb,b=sel,out=third);
+	And(a=aandb,b=sel,out=fourth);
+	Or(a=first,b=second,out=bigfirst);
+	Or(a=third,b=fourth,out=bigsecond);
+	Or(a=bigfirst,b=bigsecond,out=out);
+}
